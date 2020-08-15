@@ -1,0 +1,27 @@
+{
+  "name": "mpkmb.webhook.node.v57",
+  "version": "1.0.0",
+  "description": "MPKMB webhook trigger application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamfir/mpkmb.webhook.node.v57.git"
+  },
+  "keywords": [
+    "MPKMB",
+    "Node",
+    "Webhook"
+  ],
+  "author": "adamfir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamfir/mpkmb.webhook.node.v57/issues"
+  },
+  "homepage": "https://github.com/adamfir/mpkmb.webhook.node.v57#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
