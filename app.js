@@ -93,4 +93,28 @@ app.post('/webhook/app', verifyWebhook, (req, res) => {
   });
 });
 
+app.post('/webhook/admin', verifyWebhook, (req, res) => {
+  const {
+    query: {
+      u,
+      p
+    }
+  } = req;
+  const decodedPass = Buffer.from(p, 'base64').toString('ascii');
+  const origin = `https://${u}:${decodedPass}@github.com/pramesywaraj/mpkmb-admin2020-deploy.git master`;
+  const command = `cd /var/www/mpkmb-admin2020-deploy && git pull ${origin}`;
+
+  exec(command, (error) => {
+    if (error) {
+      res.status(400).json({
+        message: `There is an error when execute ${command}`,
+        error
+      });
+    }
+    res.status(200).json({
+      message: 'OK'
+    });
+  });
+});
+
 app.listen(port, () => console.log(`Running server in port ${port}`));
