@@ -26,6 +26,10 @@ function verifyWebhook(req, res, next) {
   return next();
 }
 
+app.get("/webhook", (req, res) => {
+	res.json({ message: "Webhook active" });
+});
+
 app.post('/webhook/backend', verifyWebhook, (req, res) => {
   const {
     query: {
