@@ -4,9 +4,11 @@ const {
   exec
 } = require('child_process');
 const crypto = require('crypto');
+const bodyParser = require('body-parser');
 
 const port = 3003;
 const secretKey = '1KSzYPRMHad8AUZAyzuVqzDPPiHmDB';
+app.use(bodyParser.json());
 
 function verifyWebhook(req, res, next) {
   const payload = JSON.stringify(req.body);
