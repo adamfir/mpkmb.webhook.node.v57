@@ -49,11 +49,11 @@ app.post('/webhook/backend', verifyWebhook, (req, res) => {
       res.status(200).json({
         message: `OK. There is new change. Reloading pm2 for ${processName}`
       });
-      exec(`cd /home/mpkmb/mpkmb57.backend.node && npm i && pm2 reload ${processName}`, (error2, stdout2) => {
+      exec(`cd /home/mpkmb/mpkmb57.backend.node && ./run.sh`, (error2, stdout2) => {
         if (error) {
           console.log('error :>> ', error2);
         }
-        console.log('stdout2 :>> ', stdout2);
+        // console.log('stdout2 :>> ', stdout2);
       });
     } else {
       res.status(200).json({
